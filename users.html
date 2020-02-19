@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>User Repository</title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App Icons -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+
+    <body>
+
+        <div class="header-bg">
+            <!-- Navigation Bar-->
+            <header id="topnav">
+                <div class="topbar-main">
+                    <div class="container-fluid">
+
+                        <!-- Logo-->
+                        <div>
+                            
+                            <a href="index.html" class="logo">
+                                <img src="assets/images/logo.png" alt="" height="26"> 
+                            </a>
+
+                        </div>
+                        <!-- End Logo-->
+
+                        <div class="menu-extras topbar-custom navbar p-0">
+
+                            <ul class="list-inline ml-auto mb-0 mt-2">
+                                <li class="menu-item list-inline-item">
+                                    <!-- Mobile menu toggle-->
+                                    <a class="navbar-toggle nav-link">
+                                        <div class="lines">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                    <!-- End mobile menu toggle-->
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <!-- end menu-extras -->
+
+                        <div class="clearfix"></div>
+
+                    </div> <!-- end container -->
+                </div>
+                <!-- end topbar-main -->
+
+                <!-- MENU Start -->
+                <div class="navbar-custom">
+                    <div class="container-fluid">
+                        
+                        <div id="navigation">
+
+                            <!-- Navigation Menu-->
+                            <ul class="navigation-menu">
+
+                                <li class="has-submenu">
+                                    <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="users.html"><i class="fas fa-user-friends"></i> User Repository</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="rules.html"><i class="fas fa-balance-scale"></i> Rules</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="actions.html"><i class="far fa-calendar-alt"></i> Actions</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="#"><i class="fas fa-power-off"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                            <!-- End navigation menu -->
+                        </div> <!-- end #navigation -->
+                    </div> <!-- end container -->
+                </div> <!-- end navbar-custom -->
+            </header>
+            <!-- End Navigation Bar-->
+
+        </div>
+        <!-- header-bg -->
+
+        <div class="wrapper">
+            <div class="container-fluid">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="row align-items-center">
+                                <div class="col-12">
+                                    <h4 class="page-title m-0">User Repository</h4>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+
+                                <table id="mainTable" class="table table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Family</th>
+                                            <th>MSISDN</th>
+                                            <th>IMSI</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="editable">Ehsan</td>
+                                            <td class="editable">Beiglou</td>
+                                            <td class="editable">99999999</td>
+                                            <td class="editable">656446</td>
+                                            <td>
+                                                <a class="mx-2" href="#" onclick="confirm('Are you sure?')"><i class="fas fa-trash-alt font-20 text-danger"></i></a>
+                                                <a class="mx-2" href="#"><i class="fas fa-user-edit font-20"></i></a>
+                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".read-message"><i class="fab fa-facebook-messenger font-20"></i></a>
+                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".send-message"><i class="far fa-envelope font-20"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="editable">Ehsan</td>
+                                            <td class="editable">Beiglou</td>
+                                            <td class="editable">99999999</td>
+                                            <td class="editable">656446</td>
+                                            <td>
+                                                <a class="mx-2" href="#" onclick="confirm('Are you sure?')"><i class="fas fa-trash-alt font-20 text-danger"></i></a>
+                                                <a class="mx-2" href="#"><i class="fas fa-user-edit font-20"></i></a>
+                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".read-message"><i class="fab fa-facebook-messenger font-20"></i></a>
+                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".send-message"><i class="far fa-envelope font-20"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="editable">Ehsan</td>
+                                            <td class="editable">Beiglou</td>
+                                            <td class="editable">99999999</td>
+                                            <td class="editable">656446</td>
+                                            <td>
+                                                <a class="mx-2" href="#" onclick="confirm('Are you sure?')"><i class="fas fa-trash-alt font-20 text-danger"></i></a>
+                                                <a class="mx-2" href="#"><i class="fas fa-user-edit font-20"></i></a>
+                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".read-message"><i class="fab fa-facebook-messenger font-20"></i></a>
+                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".send-message"><i class="far fa-envelope font-20"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="height: 30px;"></div>
+                                <nav aria-label="...">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+
+                            </div>
+                            
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+
+            </div> <!-- end container-fluid -->
+        </div>
+        <!-- end wrapper -->
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        © 2019  <span class="d-none d-md-inline-block"> - Crafted with <i class="fas fa-heart text-danger"></i> by .</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+        <div class="modal fade read-message" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0">Center modal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body row">
+                        <div id="view-message-head" class="col-3" style="max-height: 300px;overflow-y: scroll;">
+                            <p>Message 1</p>
+                            <p>Message 2</p>
+                            <p>Message 3</p>
+                            <p>Message 4</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                            <p>Message 1</p>
+                        </div id="view-message-body">
+                        <div class="col-9">
+                            <div id="view-body-message" style="max-height: 300px;overflow-y: scroll;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta vel quia, iste corrupti modi expedita eos quaerat maxime distinctio maiores vitae repudiandae quidem sequi autem dolor delectus dolorem accusamus odio, quo necessitatibus. Perferendis deserunt quae, error quo similique itaque recusandae, necessitatibus fugit sapiente obcaecati vero. Odio, accusamus minus eum repellat neque quasi laborum iste in quod odit voluptatum blanditiis, non totam molestiae veritatis vero accusantium tenetur ad quidem atque. Laboriosam architecto possimus reiciendis eveniet distinctio, aut perferendis? Dignissimos natus similique suscipit iste architecto illo quis libero? Quidem dolorem eaque maxime cumque ex iste fuga, architecto impedit suscipit consequuntur sed, illo sit dicta ea aspernatur necessitatibus atque facilis. Illo, delectus repellat esse natus consequatur doloribus tempora aliquid necessitatibus ducimus hic quia magni nihil reiciendis quis enim. Possimus similique itaque fugit non est ratione cupiditate alias nostrum error, magni corporis sint quia veritatis vero eos velit corrupti at, quis quae odio libero nam laudantium. Est quis natus harum. Odio quisquam maxime et magni non quas dolor expedita sit deserunt nobis quod iusto eligendi consequuntur repudiandae culpa temporibus itaque ipsam delectus, vero reiciendis repellendus atque nesciunt. Quidem est recusandae eum sapiente nesciunt minus sunt tenetur quasi ducimus dolor nisi repellat cum aliquam, incidunt, quam iste perspiciatis? Quisquam quas rerum neque laudantium magnam, eveniet, in modi reiciendis non tempore quidem aliquam blanditiis nulla corporis nobis repudiandae nisi unde quasi sint cumque? Aliquam quo architecto corporis debitis ad libero reprehenderit consequuntur omnis at nesciunt veniam nemo labore sapiente voluptate magni facere optio assumenda impedit nam tempora minima, magnam doloribus alias quas! Temporibus odit, nesciunt quos alias blanditiis quo cupiditate a sequi earum repudiandae tempora assumenda sint quaerat est quibusdam, facere recusandae tenetur, eveniet provident voluptatum! Voluptatum obcaecati nam sequi voluptates rem totam laudantium magnam quod velit, tempore provident laborum odio ipsam nulla cumque consequatur perferendis aperiam eius quidem reprehenderit alias eveniet vitae assumenda. Totam iure commodi distinctio quia aliquid adipisci deleniti facere qui optio numquam omnis officiis quisquam aliquam natus, tempora illo et repellendus aspernatur cum maiores ut vitae tenetur. Sapiente, repellendus? Quod, enim. Sunt eaque quibusdam nostrum? Ut voluptatem voluptate quasi dignissimos aliquid optio corporis, nam porro ratione? Veritatis saepe nesciunt provident harum ut odio repellendus modi in eius labore doloremque earum corrupti velit incidunt, laborum minima ducimus mollitia cum debitis amet explicabo laudantium. Distinctio non dolorum tempora facilis magni at incidunt quo hic nostrum consectetur, officia numquam vel optio quisquam perspiciatis beatae mollitia inventore quibusdam debitis iure ullam velit veniam qui ducimus. Optio eum repellendus at sunt sit veniam distinctio temporibus, praesentium autem ducimus nobis cumque harum totam ut placeat quos, quis blanditiis neque unde? Ipsa perferendis quibusdam, doloribus alias eligendi, eveniet provident adipisci praesentium repudiandae tempore maxime iusto commodi consequuntur incidunt exercitationem cumque sed nostrum. Inventore repudiandae suscipit eos a aspernatur cumque consectetur voluptatum dolorum sit nam. Nemo ipsa, distinctio pariatur, minus, rerum necessitatibus id tempore fugiat assumenda sunt consectetur! Vitae necessitatibus libero autem harum nihil, dicta eius distinctio! Ratione, minima officiis cupiditate distinctio voluptatem eaque sapiente nam totam hic et ducimus?</div>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade send-message" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0">Send Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="form-group row">
+                                <label for="message-from" class="col-sm-2 col-form-label">From</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="message-from">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="message-to" class="col-sm-2 col-form-label">To</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="message-to">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="message-message" class="col-sm-2 col-form-label">Message</label>
+                                <div class="col-sm-10">
+                                    <textarea id="textarea" class="form-control" maxlength="225" rows="3" id="message-message"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/mindmup-editabletable.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+
+        <script>
+            $('table').editableTableWidget();
+            // $('td.editable').editableTableWidget({editor: $('<textarea>')});
+        </script>
+
+    </body>
+</html>

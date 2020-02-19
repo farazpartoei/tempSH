@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>Actions</title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App Icons -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        
+        <!-- Dropzone css -->
+        <link href="assets/css/dropzone.min.css" rel="stylesheet" type="text/css">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+        <div class="header-bg">
+            <!-- Navigation Bar-->
+            <header id="topnav">
+                <div class="topbar-main">
+                    <div class="container-fluid">
+
+                        <!-- Logo-->
+                        <div>
+                            
+                            <a href="index.html" class="logo">
+                                <img src="assets/images/logo.png" alt="" height="26"> 
+                            </a>
+
+                        </div>
+                        <!-- End Logo-->
+
+                        <div class="menu-extras topbar-custom navbar p-0">
+
+                            <ul class="list-inline ml-auto mb-0 mt-2">
+                                <li class="menu-item list-inline-item">
+                                    <!-- Mobile menu toggle-->
+                                    <a class="navbar-toggle nav-link">
+                                        <div class="lines">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                    <!-- End mobile menu toggle-->
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <!-- end menu-extras -->
+
+                        <div class="clearfix"></div>
+
+                    </div> <!-- end container -->
+                </div>
+                <!-- end topbar-main -->
+
+                <!-- MENU Start -->
+                <div class="navbar-custom">
+                    <div class="container-fluid">
+                        
+                        <div id="navigation">
+
+                            <!-- Navigation Menu-->
+                            <ul class="navigation-menu">
+
+                                <li class="has-submenu">
+                                    <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="users.html"><i class="fas fa-user-friends"></i> User Repository</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="rules.html"><i class="fas fa-balance-scale"></i> Rules</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="actions.html"><i class="far fa-calendar-alt"></i> Actions</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="#"><i class="fas fa-power-off"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                            <!-- End navigation menu -->
+                        </div> <!-- end #navigation -->
+                    </div> <!-- end container -->
+                </div> <!-- end navbar-custom -->
+            </header>
+            <!-- End Navigation Bar-->
+
+        </div>
+        <!-- header-bg -->
+
+        <!-- Main Content -->
+        <div class="wrapper">
+            <div class="container-fluid">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="page-title m-0">Actions</h4>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
+
+                <div style="width: 500px;margin: 0 auto;text-align: center;">
+                    <div class="form-group">
+                        <div style="width: 200px;margin: 0 auto;">
+                            <select class="form-control" onchange="showForm(this.value)">
+                                <option>Action Type</option>
+                                <option value="massSeen">Mass Seen</option>
+                                <option value="register">Register</option>
+                                <option value="vote">Vote</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div style="max-width: 500px; margin: 40px auto;border: 1px solid #424858;border-radius: 10px;padding: 20px;">
+                    <!-- Mass Seen Form -->
+                    <form id="massSeen" action="#" style="display: none;">
+                        <input type="hidden" id="actionType" value="massSeen">
+                        <div class="form-group row">
+                            <label for="channelName" class="col-sm-4 col-form-label">Channel Name:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="channelName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="fromPostID" class="col-sm-4 col-form-label">From post ID</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="fromPostID">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="toPostID" class="col-sm-4 col-form-label">To post ID</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="toPostID">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="count" class="col-sm-4 col-form-label">Count</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="count">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="register" action="#" style="display: none;" method="post" enctype="multipart/form-data">
+                        <input type="hidden" id="actionType" value="register">
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-4 col-form-label">Name</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="family" class="col-sm-4 col-form-label">Family</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="family">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="MSISDN" class="col-sm-4 col-form-label">MSISDN</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="MSISDN">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="IMSI" class="col-sm-4 col-form-label">IMSI</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="IMSI">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="bio" class="col-sm-4 col-form-label">bio</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="bio">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Photo" class="col-sm-4 col-form-label">Photo</label>
+                            <div class="col-sm-8">
+                                <div class="dropzone" action="#">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple="multiple">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
+                    </form>
+
+                    <!-- Vote Form -->
+                    <form id="vote" action="#" style="display: none;">
+                        <input type="hidden" id="actionType" value="vote">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Channel Name:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="channelName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="fromPostID" class="col-sm-4 col-form-label">From post ID</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="fromPostID">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="toPostID" class="col-sm-4 col-form-label">To post ID</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="toPostID">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="count" class="col-sm-4 col-form-label">Count</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="count">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
+                    </form>
+                </div>
+
+            </div> <!-- end container-fluid -->
+        </div>
+        <!-- end wrapper -->
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        © 2019 Copyright <span class="d-none d-md-inline-block"> - Crafted with <i class="fas fa-heart text-danger"></i> by .</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/dropzone.min.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+        <script>
+        function showForm(value) {
+            console.log(value);
+            switch (value) {
+                case 'massSeen':
+                    console.log('value');
+                    $('#register').hide();
+                    $('#vote').hide();
+                    $('#massSeen').show();
+                    break;
+
+                case 'register':
+                    $('#massSeen').hide();
+                    $('#vote').hide();
+                    $('#register').show();
+                    break;
+
+                case 'vote':
+                    $('#massSeen').hide();
+                    $('#register').hide();
+                    $('#vote').show();
+                    break;
+            
+                default:
+                    $('#massSeen').hide();
+                    $('#register').hide();
+                    $('#vote').hide();
+                    break;
+            }
+        }
+        </script>
+
+    </body>
+</html>
