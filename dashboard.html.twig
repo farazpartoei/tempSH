@@ -9,103 +9,22 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App Icons -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
         <!-- morris css -->
-        <link rel="stylesheet" href="assets/css/morris.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/morris.css') }}">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     </head>
 
 
     <body>
 
-        <div class="header-bg">
-            <!-- Navigation Bar-->
-            <header id="topnav">
-                <div class="topbar-main">
-                    <div class="container-fluid">
-
-                        <!-- Logo-->
-                        <div>
-                            
-                            <a href="index.html" class="logo">
-                                <img src="assets/images/logo.png" alt="" height="26"> 
-                            </a>
-
-                        </div>
-                        <!-- End Logo-->
-
-                        <div class="menu-extras topbar-custom navbar p-0">
-
-                            <ul class="list-inline ml-auto mb-0 mt-2">
-                                <li class="menu-item list-inline-item">
-                                    <!-- Mobile menu toggle-->
-                                    <a class="navbar-toggle nav-link">
-                                        <div class="lines">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </a>
-                                    <!-- End mobile menu toggle-->
-                                </li>
-
-                            </ul>
-
-                        </div>
-                        <!-- end menu-extras -->
-
-                        <div class="clearfix"></div>
-
-                    </div> <!-- end container -->
-                </div>
-                <!-- end topbar-main -->
-
-                <!-- MENU Start -->
-                <div class="navbar-custom">
-                    <div class="container-fluid">
-                        
-                        <div id="navigation">
-
-                            <!-- Navigation Menu-->
-                            <ul class="navigation-menu">
-
-                                <li class="has-submenu">
-                                    <a href="dashboard.html.twig"><i class="fas fa-home"></i> Dashboard</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="users.html.twig"><i class="fas fa-user-friends"></i> User Repository</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="rules.html.twig"><i class="fas fa-balance-scale"></i> Rules</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="actions.html.twig"><i class="far fa-calendar-alt"></i> Actions</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="#"><i class="fas fa-power-off"></i> Logout</a>
-                                </li>
-
-                            </ul>
-                            <!-- End navigation menu -->
-                        </div> <!-- end #navigation -->
-                    </div> <!-- end container -->
-                </div> <!-- end navbar-custom -->
-            </header>
-            <!-- End Navigation Bar-->
-
-        </div>
-        <!-- header-bg -->
-
+       {% include 'header.html.twig' %}
         <div class="wrapper">
             <div class="container-fluid">
 
@@ -135,7 +54,7 @@
                                 <div class="float-right">
                                     <a href="#" class="text-white-50"><i class="mdi mdi-cube-outline h5"></i></a>
                                 </div>
-                                <p class="font-14 m-0">324,555</p>
+                                <p class="font-14 m-0">{{numberOfActiveUsers | number_format}}</p>
                             </div>
                         </div>
                     </div>
@@ -151,7 +70,7 @@
                                 <div class="float-right">
                                     <a href="#" class="text-white-50"><i class="mdi mdi-cube-outline h5"></i></a>
                                 </div>
-                                <p class="font-14 m-0">324,555</p>
+                                <p class="font-14 m-0" id="queue_size">0</p>
                             </div>
                         </div>
                     </div>
@@ -167,7 +86,7 @@
                                 <div class="float-right">
                                     <a href="#" class="text-white-50"><i class="mdi mdi-cube-outline h5"></i></a>
                                 </div>
-                                <p class="font-14 m-0">324,555</p>
+                                <p class="font-14 m-0">{{ rules | length }}</p>
                             </div>
                         </div>
                     </div>
@@ -176,34 +95,26 @@
                 <!-- end row -->
 
                 <div class="row">
-                    <div class="col-xl-9">
-                        <div class="card">
+                    <div class="col-sm-8">
+                        <div class="card m-b-30">
                             <div class="card-body">
-                                <h4 class="mt-0 header-title">Sales Report</h4>
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <div id="morris-line-example" class="morris-chart" style="height: 300px"></div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div>
-                                            <h5 class="font-14 mb-5">Yearly Sales Report</h5>
 
-                                            <div>
-                                                <h5 class="mb-3">2018 : $19523</h5>
-                                                <p class="text-muted mb-4">At vero eos et accusamus et iusto odio dignissimos ducimus atque</p>
-                                                <a href="#" class="btn btn-primary btn-sm">Read more <i class="mdi mdi-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h4 class="mt-0 header-title">Bar Chart</h4>
+
+                                <div id="morris-bar-example" class="morris-chart" style="height: 300px"></div>
+
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3">
+                    </div> <!-- end col -->
+
+                    <div class="col-sm-4">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="mt-0 header-title">Sales Analytics</h4>
+
+                                <h4 class="mt-0 header-title">Users Repo</h4>
+
                                 <div id="morris-donut-example" class="morris-chart" style="height: 300px"></div>
+
                             </div>
                         </div>
                     </div>
@@ -216,34 +127,79 @@
 
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        © 2019 Copyright <span class="d-none d-md-inline-block"> - Crafted with <i class="fas fa-heart text-danger"></i> by .</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {% include 'footer.html.twig' %}
         <!-- End Footer -->
 
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/waves.js') }}"></script>
+
+        <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
 
         <!--Morris Chart-->
-        <script src="assets/js/morris.min.js"></script>
-        <script src="assets/js/raphael.min.js"></script>
-
-        <!-- dashboard js -->
-        <script src="assets/js/dashboard.int.js"></script>
+        <script src="{{ asset('assets/js/morris.min.js') }}"></script>
+        <script src="{{ asset('assets/js/raphael.min.js') }}"></script>
 
         <!-- App js -->
-        <script src="assets/js/app.js"></script>
+        <script src="{{ asset('assets/js/app.js') }}"></script>
+
+        <script>
+
+            //creating bar chart
+            /*var $barData = [
+                {y: '2009', a: 100, b: 90},
+                {y: '2010', a: 75 , b: 65},
+                {y: '2011', a: 50 , b: 40},
+                {y: '2012', a: 75 , b: 65},
+                {y: '2013', a: 50 , b: 40},
+                {y: '2014', a: 75 , b: 65},
+                {y: '2015', a: 100, b: 90},
+                {y: '2016', a: 90 , b: 75}
+            ];*/
+
+            var $barData={{ chartData | raw }}
+
+            Morris.Bar({
+                element: 'morris-bar-example',
+                data: $barData,
+                xkey: 'y',
+                ykeys: ['a', 'b'],
+                labels: ['Members', 'Views'],
+                gridLineColor: '#eef0f2',
+                barSizeRatio: 0.4,
+                resize: true,
+                hideHover: 'auto',
+                barColors: ['#5985ee', '#46cd93']
+            });
+
+    
+            //creating donut chart
+            var $donutData = [
+                {label: "Active Users", value: {{numberOfActiveUsers}}},
+                {label: "Pending for activation", value: {{numberOfPendingUsers}}}
+            ];
+    
+            Morris.Donut({
+                element: 'morris-donut-example',
+                data: $donutData,
+                resize: true,
+                colors: ['#4bbbce', '#5985ee', '#46cd93']
+            });
+
+
+
+            setInterval(function(){
+                $.getJSON( "/api/get_queue_size", function( data ) {
+                    var num=data.result.size[0];
+                    $("#queue_size").html(num.toLocaleString());
+                });
+
+            }, 60000);
+        </script>
 
     </body>
 </html>

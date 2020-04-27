@@ -9,101 +9,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App Icons -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
         
         <!-- Dropzone css -->
-        <link href="assets/css/dropzone.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/dropzone.min.css') }}" rel="stylesheet" type="text/css">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     </head>
 
     <body>
-        <div class="header-bg">
-            <!-- Navigation Bar-->
-            <header id="topnav">
-                <div class="topbar-main">
-                    <div class="container-fluid">
-
-                        <!-- Logo-->
-                        <div>
-                            
-                            <a href="index.html" class="logo">
-                                <img src="assets/images/logo.png" alt="" height="26"> 
-                            </a>
-
-                        </div>
-                        <!-- End Logo-->
-
-                        <div class="menu-extras topbar-custom navbar p-0">
-
-                            <ul class="list-inline ml-auto mb-0 mt-2">
-                                <li class="menu-item list-inline-item">
-                                    <!-- Mobile menu toggle-->
-                                    <a class="navbar-toggle nav-link">
-                                        <div class="lines">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </a>
-                                    <!-- End mobile menu toggle-->
-                                </li>
-
-                            </ul>
-
-                        </div>
-                        <!-- end menu-extras -->
-
-                        <div class="clearfix"></div>
-
-                    </div> <!-- end container -->
-                </div>
-                <!-- end topbar-main -->
-
-                <!-- MENU Start -->
-                <div class="navbar-custom">
-                    <div class="container-fluid">
-                        
-                        <div id="navigation">
-
-                            <!-- Navigation Menu-->
-                            <ul class="navigation-menu">
-
-                                <li class="has-submenu">
-                                    <a href="dashboard.html.twig"><i class="fas fa-home"></i> Dashboard</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="users.html.twig"><i class="fas fa-user-friends"></i> User Repository</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="rules.html.twig"><i class="fas fa-balance-scale"></i> Rules</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="actions.html.twig"><i class="far fa-calendar-alt"></i> Actions</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="#"><i class="fas fa-power-off"></i> Logout</a>
-                                </li>
-
-                            </ul>
-                            <!-- End navigation menu -->
-                        </div> <!-- end #navigation -->
-                    </div> <!-- end container -->
-                </div> <!-- end navbar-custom -->
-            </header>
-            <!-- End Navigation Bar-->
-
-        </div>
-        <!-- header-bg -->
-
+        {% include 'header.html.twig' %}
         <!-- Main Content -->
         <div class="wrapper">
             <div class="container-fluid">
@@ -121,7 +40,7 @@
                     </div>
                 </div>
                 <!-- end page title end breadcrumb -->
-
+                {% if message is defined %} <div class="alert alert-success" align="center"> {{ message }} </div>{% endif %}
                 <div style="width: 500px;margin: 0 auto;text-align: center;">
                     <div class="form-group">
                         <div style="width: 200px;margin: 0 auto;">
@@ -129,6 +48,7 @@
                                 <option>Action Type</option>
                                 <option value="massSeen">Mass Seen</option>
                                 <option value="register">Register</option>
+                                <option value="join">Join Channel</option>
                                 <option value="vote">Vote</option>
                             </select>
                         </div>
@@ -136,66 +56,66 @@
                 </div>
                 <div style="max-width: 500px; margin: 40px auto;border: 1px solid #424858;border-radius: 10px;padding: 20px;">
                     <!-- Mass Seen Form -->
-                    <form id="massSeen" action="#" style="display: none;">
-                        <input type="hidden" id="actionType" value="massSeen">
+                    <form id="massSeen" method="post" action="{{ path('new_action') }}" style="display: none;">
+                        <input type="hidden" id="actionType" name="actionType" value="massSeen">
                         <div class="form-group row">
                             <label for="channelName" class="col-sm-4 col-form-label">Channel Name:</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="channelName">
+                                <input class="form-control" name="channelName" type="text" id="channelName">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="fromPostID" class="col-sm-4 col-form-label">From post ID</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="fromPostID">
+                                <input class="form-control" name="fromPostId" type="text" id="fromPostID">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="toPostID" class="col-sm-4 col-form-label">To post ID</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="toPostID">
+                                <input class="form-control" name="toPostId" type="text" id="toPostID">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="count" class="col-sm-4 col-form-label">Count</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="count">
+                                <input class="form-control" name="count" type="text" id="count">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
                     </form>
 
                     <!-- Register Form -->
-                    <form id="register" action="#" style="display: none;" method="post" enctype="multipart/form-data">
-                        <input type="hidden" id="actionType" value="register">
+                    <form id="register" method="post" action="{{ path('new_action') }}" style="display: none;" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="actionType" id="actionType" value="register">
                         <div class="form-group row">
                             <label for="name" class="col-sm-4 col-form-label">Name</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="name">
+                                <input class="form-control" name="name" type="text" id="name">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="family" class="col-sm-4 col-form-label">Family</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="family">
+                                <input class="form-control" name="family" type="text" id="family">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="MSISDN" class="col-sm-4 col-form-label">MSISDN</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="MSISDN">
+                                <input class="form-control" name="msisdn" type="text" id="MSISDN">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="IMSI" class="col-sm-4 col-form-label">IMSI</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="IMSI">
+                                <input class="form-control" name="imsi" type="text" id="IMSI">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="bio" class="col-sm-4 col-form-label">bio</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="bio">
+                                <input class="form-control" name="bio" type="text" id="bio">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -211,31 +131,52 @@
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
                     </form>
 
-                    <!-- Vote Form -->
-                    <form id="vote" action="#" style="display: none;">
-                        <input type="hidden" id="actionType" value="vote">
+
+
+                    <form id="join" method="post" action="{{ path('new_action') }}" style="display: none;">
+                        <input type="hidden" name="actionType" id="actionType" value="join">
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">Channel Name:</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="channelName">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="fromPostID" class="col-sm-4 col-form-label">From post ID</label>
-                            <div class="col-sm-8">
-                                <input class="form-control" type="text" id="fromPostID">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="toPostID" class="col-sm-4 col-form-label">To post ID</label>
-                            <div class="col-sm-8">
-                                <input class="form-control" type="text" id="toPostID">
+                                <input class="form-control" name="channelName" type="text" id="channelName">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="count" class="col-sm-4 col-form-label">Count</label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="count">
+                                <input class="form-control" name="count" type="text" id="count">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
+                    </form>
+
+
+                    <!-- Vote Form -->
+                    <form id="vote" method="post" action="{{ path('new_action') }}" style="display: none;">
+                        <input type="hidden" name="actionType" id="actionType" value="vote">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Channel Name:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="channelName" type="text" id="channelName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="fromPostID" class="col-sm-4 col-form-label">Post ID</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="postId" type="text" id="postId">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="toPostID" class="col-sm-4 col-form-label">Option</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="option" type="text" id="option">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="count" class="col-sm-4 col-form-label">Votes</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="votes" type="text" id="vote">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
@@ -248,28 +189,20 @@
 
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        © 2019 Copyright <span class="d-none d-md-inline-block"> - Crafted with <i class="fas fa-heart text-danger"></i> by .</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
+            {% include 'footer.html.twig' %}
         <!-- End Footer -->
 
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/dropzone.min.js"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+        <script src="{{ asset('assets/js/waves.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+        <script src="{{ asset('assets/js/dropzone.min.js') }}"></script>
 
         <!-- App js -->
-        <script src="assets/js/app.js"></script>
+        <script src="{{ asset('assets/js/app.js') }}"></script>
         <script>
         function showForm(value) {
             console.log(value);
@@ -278,24 +211,34 @@
                     console.log('value');
                     $('#register').hide();
                     $('#vote').hide();
+                    $('#join').hide();
                     $('#massSeen').show();
                     break;
 
                 case 'register':
                     $('#massSeen').hide();
                     $('#vote').hide();
+                    $('#join').hide();
                     $('#register').show();
                     break;
 
                 case 'vote':
                     $('#massSeen').hide();
                     $('#register').hide();
+                    $('#join').hide();
                     $('#vote').show();
+                    break;
+                case 'join':
+                    $('#massSeen').hide();
+                    $('#register').hide();
+                    $('#vote').hide();
+                    $('#join').show();
                     break;
             
                 default:
                     $('#massSeen').hide();
                     $('#register').hide();
+                    $('#join').hide();
                     $('#vote').hide();
                     break;
             }
