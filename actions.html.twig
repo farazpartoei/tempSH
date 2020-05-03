@@ -54,9 +54,9 @@
                         </div>
                     </div>
                 </div>
-                <div style="max-width: 500px; margin: 40px auto;border: 1px solid #424858;border-radius: 10px;padding: 20px;">
+                <div id="actions" style="max-width: 500px; margin: 40px auto;border: 1px solid #424858;border-radius: 10px;padding: 20px;">
                     <!-- Mass Seen Form -->
-                    <form id="massSeen" method="post" action="{{ path('new_action') }}" style="display: none;">
+                    <form id="massSeen" class="action-section" method="post" action="{{ path('new_action') }}" style="display: none;">
                         <input type="hidden" id="actionType" name="actionType" value="massSeen">
                         <div class="form-group row">
                             <label for="channelName" class="col-sm-4 col-form-label">Channel Name:</label>
@@ -86,7 +86,7 @@
                     </form>
 
                     <!-- Register Form -->
-                    <form id="register" method="post" action="{{ path('new_action') }}" style="display: none;" method="post" enctype="multipart/form-data">
+                    <form id="register" class="action-section" method="post" action="{{ path('new_action') }}" style="display: none;" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="actionType" id="actionType" value="register">
                         <div class="form-group row">
                             <label for="name" class="col-sm-4 col-form-label">Name</label>
@@ -133,7 +133,7 @@
 
 
 
-                    <form id="join" method="post" action="{{ path('new_action') }}" style="display: none;">
+                    <form id="join" class="action-section" method="post" action="{{ path('new_action') }}" style="display: none;">
                         <input type="hidden" name="actionType" id="actionType" value="join">
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">Channel Name:</label>
@@ -153,7 +153,7 @@
 
 
                     <!-- Vote Form -->
-                    <form id="vote" method="post" action="{{ path('new_action') }}" style="display: none;">
+                    <form id="vote" class="action-section" method="post" action="{{ path('new_action') }}" style="display: none;">
                         <input type="hidden" name="actionType" id="actionType" value="vote">
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">Channel Name:</label>
@@ -181,6 +181,42 @@
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
                     </form>
+
+                    <!-- List -->
+                    <div id="list" class="action-section" action="#" style="display: none;">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Action Type</th>
+                                    <th>Creation Date</th>
+                                    <th>Status</th>
+                                    <th>Admin Message</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Action Type</td>
+                                    <td>Creation Date</td>
+                                    <td>Status</td>
+                                    <td>Admin Message</td>
+                                </tr>
+
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Action Type</td>
+                                    <td>Creation Date</td>
+                                    <td>Status</td>
+                                    <td>Admin Message</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
 
             </div> <!-- end container-fluid -->
@@ -205,41 +241,32 @@
         <script src="{{ asset('assets/js/app.js') }}"></script>
         <script>
         function showForm(value) {
-            console.log(value);
+            $("#actions").css({ "maxWidth": "500px" });
             switch (value) {
                 case 'massSeen':
-                    console.log('value');
-                    $('#register').hide();
-                    $('#vote').hide();
-                    $('#join').hide();
+                    $('.action-section').hide();
                     $('#massSeen').show();
                     break;
 
                 case 'register':
-                    $('#massSeen').hide();
-                    $('#vote').hide();
-                    $('#join').hide();
+                    $('.action-section').hide();
                     $('#register').show();
                     break;
 
                 case 'vote':
-                    $('#massSeen').hide();
-                    $('#register').hide();
-                    $('#join').hide();
+                    $('.action-section').hide();
                     $('#vote').show();
                     break;
-                case 'join':
-                    $('#massSeen').hide();
-                    $('#register').hide();
-                    $('#vote').hide();
-                    $('#join').show();
+
+                case 'list':
+                    $('.action-section').hide();
+                    $("#actions").css({ "maxWidth": "900px" });
+                    $('#list').show();
+                    $
                     break;
-            
+
                 default:
-                    $('#massSeen').hide();
-                    $('#register').hide();
-                    $('#join').hide();
-                    $('#vote').hide();
+                    $('.action-section').hide();
                     break;
             }
         }
