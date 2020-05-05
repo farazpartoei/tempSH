@@ -12,6 +12,7 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <!-- App css -->
+
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
@@ -21,86 +22,7 @@
 
     <body>
 
-        <div class="header-bg">
-            <!-- Navigation Bar-->
-            <header id="topnav">
-                <div class="topbar-main">
-                    <div class="container-fluid">
-
-                        <!-- Logo-->
-                        <div>
-                            
-                            <a href="index.html" class="logo">
-                                <img src="assets/images/logo.png" alt="" height="26"> 
-                            </a>
-
-                        </div>
-                        <!-- End Logo-->
-
-                        <div class="menu-extras topbar-custom navbar p-0">
-
-                            <ul class="list-inline ml-auto mb-0 mt-2">
-                                <li class="menu-item list-inline-item">
-                                    <!-- Mobile menu toggle-->
-                                    <a class="navbar-toggle nav-link">
-                                        <div class="lines">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </a>
-                                    <!-- End mobile menu toggle-->
-                                </li>
-
-                            </ul>
-
-                        </div>
-                        <!-- end menu-extras -->
-
-                        <div class="clearfix"></div>
-
-                    </div> <!-- end container -->
-                </div>
-                <!-- end topbar-main -->
-
-                <!-- MENU Start -->
-                <div class="navbar-custom">
-                    <div class="container-fluid">
-                        
-                        <div id="navigation">
-
-                            <!-- Navigation Menu-->
-                            <ul class="navigation-menu">
-
-                                <li class="has-submenu">
-                                    <a href="dashboard.html.twig"><i class="fas fa-home"></i> Dashboard</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="users.html.twig"><i class="fas fa-user-friends"></i> User Repository</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="rules.html.twig"><i class="fas fa-balance-scale"></i> Rules</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="actions.html.twig"><i class="far fa-calendar-alt"></i> Actions</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="#"><i class="fas fa-power-off"></i> Logout</a>
-                                </li>
-
-                            </ul>
-                            <!-- End navigation menu -->
-                        </div> <!-- end #navigation -->
-                    </div> <!-- end container -->
-                </div> <!-- end navbar-custom -->
-            </header>
-            <!-- End Navigation Bar-->
-
-        </div>
+        {% include 'header.html.twig' %}
         <!-- header-bg -->
 
         <div class="wrapper">
@@ -137,57 +59,57 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {% for user in users %}
                                         <tr>
-                                            <td class="editable">Ehsan</td>
-                                            <td class="editable">Beiglou</td>
-                                            <td class="editable">99999999</td>
-                                            <td class="editable">656446</td>
+                                            <td class="editable">{{ user.name }}</td>
+                                            <td class="editable">{{ user.family }}</td>
+                                            <td class="editable">{{ user.msisdn }}</td>
+                                            <td class="editable">{{ user.imsi }}</td>
                                             <td>
                                                 <a class="mx-2" href="#" onclick="confirm('Are you sure?')"><i class="fas fa-trash-alt font-20 text-danger"></i></a>
                                                 <a class="mx-2" href="#"><i class="fas fa-user-edit font-20"></i></a>
-                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".read-message"><i class="fab fa-facebook-messenger font-20"></i></a>
-                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".send-message"><i class="far fa-envelope font-20"></i></a>
+                                                <!-- <a class="mx-2" href="#" data-toggle="modal" data-target=".read-message"><i class="fab fa-facebook-messenger font-20"></i></a>
+                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".send-message"><i class="far fa-envelope font-20"></i></a> -->
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="editable">Ehsan</td>
-                                            <td class="editable">Beiglou</td>
-                                            <td class="editable">99999999</td>
-                                            <td class="editable">656446</td>
-                                            <td>
-                                                <a class="mx-2" href="#" onclick="confirm('Are you sure?')"><i class="fas fa-trash-alt font-20 text-danger"></i></a>
-                                                <a class="mx-2" href="#"><i class="fas fa-user-edit font-20"></i></a>
-                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".read-message"><i class="fab fa-facebook-messenger font-20"></i></a>
-                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".send-message"><i class="far fa-envelope font-20"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="editable">Ehsan</td>
-                                            <td class="editable">Beiglou</td>
-                                            <td class="editable">99999999</td>
-                                            <td class="editable">656446</td>
-                                            <td>
-                                                <a class="mx-2" href="#" onclick="confirm('Are you sure?')"><i class="fas fa-trash-alt font-20 text-danger"></i></a>
-                                                <a class="mx-2" href="#"><i class="fas fa-user-edit font-20"></i></a>
-                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".read-message"><i class="fab fa-facebook-messenger font-20"></i></a>
-                                                <a class="mx-2" href="#" data-toggle="modal" data-target=".send-message"><i class="far fa-envelope font-20"></i></a>
-                                            </td>
-                                        </tr>
+                                    {% endfor %}
+
                                     </tbody>
                                 </table>
+                                {% set lowerBand=currentPage-10 %}
+
+                                {% if lowerBand < 1 %}
+                                    {% set lowerBand=1 %}
+                                {% endif %}
+
+                                {% set upperBand=currentPage+10 %}
+
+                                {% if upperBand > numberOfPages %}
+                                    {% set upperBand=numberOfPages %}
+                                {% endif %}
+
+
+
                                 <div style="height: 30px;"></div>
                                 <nav aria-label="...">
                                     <ul class="pagination">
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                        <li class="page-item {% if currentPage == 1 %} disabled {% endif %}">
+                                            <a class="page-link" href="{{ path('profiles_list',{'p' : currentPage-1}) }}" tabindex="-1">Previous</a>
                                         </li>
+                                        {% for i in lowerBand .. upperBand %}
+                                            <li class="page-item {% if i==currentPage %} active {% endif %}"><a class="page-link" href="{{ path('profiles_list',{'p' : i}) }}">{{ i }} {% if i==currentPage %}  <span class="sr-only">(current)</span>  {% endif %} </a></li>
+                                        {% endfor %}
+
+                                        <!--
                                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                                         <li class="page-item active">
                                             <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        -->
+
                                         <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
+                                            <a class="page-link" href="{{ path('profiles_list',{'p' : currentPage+1}) }}">Next</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -206,15 +128,9 @@
 
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        © 2019  <span class="d-none d-md-inline-block"> - Crafted with <i class="fas fa-heart text-danger"></i> by .</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
+            {% include 'footer.html.twig' %}
+
         <!-- End Footer -->
 
         <div class="modal fade read-message" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

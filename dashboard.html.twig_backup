@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>Dashboard</title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App Icons -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- morris css -->
+        <link rel="stylesheet" href="assets/css/morris.css">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+
+    <body>
+
+        {% include 'header.html.twig' %}
+        <!-- header-bg -->
+
+        <div class="wrapper">
+            <div class="container-fluid">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="page-title m-0">Dashboard</h4>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
+
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary mini-stat text-white">
+                            <div class="p-3 mini-stat-desc">
+                                <div class="clearfix">
+                                    <h6 class="mt-0 float-left text-white-50">Number Of Users</h6>
+                                </div>                                
+                            </div>
+                            <div class="p-3">
+                                <div class="float-right">
+                                    <a href="#" class="text-white-50"><i class="mdi mdi-cube-outline h5"></i></a>
+                                </div>
+                                <p class="font-14 m-0">{{ numberOfActiveUsers | number_format }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary mini-stat text-white">
+                            <div class="p-3 mini-stat-desc">
+                                <div class="clearfix">
+                                    <h6 class="mt-0 float-left text-white-50">Queue</h6>
+                                </div>                                
+                            </div>
+                            <div class="p-3">
+                                <div class="float-right">
+                                    <a href="#" class="text-white-50"><i class="mdi mdi-cube-outline h5"></i></a>
+                                </div>
+                                <p class="font-14 m-0">324,555</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary mini-stat text-white">
+                            <div class="p-3 mini-stat-desc">
+                                <div class="clearfix">
+                                    <h6 class="mt-0 float-left text-white-50">Rules</h6>
+                                </div>                                
+                            </div>
+                            <div class="p-3">
+                                <div class="float-right">
+                                    <a href="#" class="text-white-50"><i class="mdi mdi-cube-outline h5"></i></a>
+                                </div>
+                                <p class="font-14 m-0">324,555</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>  
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mt-0 header-title">Sales Report</h4>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div id="morris-line-example" class="morris-chart" style="height: 300px"></div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div>
+                                            <h5 class="font-14 mb-5">Yearly Sales Report</h5>
+
+                                            <div>
+                                                <h5 class="mb-3">2018 : $19523</h5>
+                                                <p class="text-muted mb-4">At vero eos et accusamus et iusto odio dignissimos ducimus atque</p>
+                                                <a href="#" class="btn btn-primary btn-sm">Read more <i class="mdi mdi-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mt-0 header-title">User Repository Report</h4>
+                                <div id="morris-donut-example" class="morris-chart" style="height: 300px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+            </div> <!-- end container-fluid -->
+        </div>
+        <!-- end wrapper -->
+
+
+        <!-- Footer -->
+            {% include 'footer.html.twig' %}
+        <!-- End Footer -->
+
+
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+
+        <!--Morris Chart-->
+        <script src="assets/js/morris.min.js"></script>
+        <script src="assets/js/raphael.min.js"></script>
+
+        <!-- dashboard js -->
+        <script src="assets/js/dashboard.int.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+
+    </body>
+</html>

@@ -183,7 +183,7 @@
                     </form>
 
                     <!-- List -->
-                    <div id="list" class="action-section" action="#" style="display: none;">
+                    <div id="list" class="action-section" action="#" >
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
@@ -256,6 +256,11 @@
                 case 'vote':
                     $('.action-section').hide();
                     $('#vote').show();
+                    break;
+
+                case 'join':
+                    $('.action-section').hide();
+                    $('#join').show();
                     break;
 
                 case 'list':

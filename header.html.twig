@@ -1,0 +1,80 @@
+<div class="header-bg">
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+
+                <!-- Logo-->
+                <div>
+
+                    <a href="{{ path('home') }}" class="logo">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="" height="26">
+                    </a>
+
+                </div>
+                <!-- End Logo-->
+
+                <div class="menu-extras topbar-custom navbar p-0">
+
+                    <ul class="list-inline ml-auto mb-0 mt-2">
+                        <li class="menu-item list-inline-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- end menu-extras -->
+
+                <div class="clearfix"></div>
+
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+
+        <!-- MENU Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+
+                <div id="navigation">
+
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+
+                        <li class="has-submenu">
+                            <a href="{{path('home')}}"><i class="fas fa-home"></i> Dashboard</a>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="{{ path('profiles_list') }}"><i class="fas fa-user-friends"></i> User Repository</a>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="{{ path('rules_list') }}"><i class="fas fa-balance-scale"></i> Rules</a>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="{{ path('actions_list') }}"><i class="far fa-calendar-alt"></i> Actions</a>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="{{ path('app_logout') }}"><i class="fas fa-power-off"></i> Logout</a>
+                        </li>
+
+                    </ul>
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+
+</div>

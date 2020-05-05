@@ -9,97 +9,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App Icons -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     </head>
 
     <body>
-        <div class="header-bg">
-            <!-- Navigation Bar-->
-            <header id="topnav">
-                <div class="topbar-main">
-                    <div class="container-fluid">
 
-                        <!-- Logo-->
-                        <div>
-                            
-                            <a href="index.html" class="logo">
-                                <img src="assets/images/logo.png" alt="" height="26"> 
-                            </a>
 
-                        </div>
-                        <!-- End Logo-->
-
-                        <div class="menu-extras topbar-custom navbar p-0">
-
-                            <ul class="list-inline ml-auto mb-0 mt-2">
-                                <li class="menu-item list-inline-item">
-                                    <!-- Mobile menu toggle-->
-                                    <a class="navbar-toggle nav-link">
-                                        <div class="lines">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </a>
-                                    <!-- End mobile menu toggle-->
-                                </li>
-
-                            </ul>
-
-                        </div>
-                        <!-- end menu-extras -->
-
-                        <div class="clearfix"></div>
-
-                    </div> <!-- end container -->
-                </div>
-                <!-- end topbar-main -->
-
-                <!-- MENU Start -->
-                <div class="navbar-custom">
-                    <div class="container-fluid">
-                        
-                        <div id="navigation">
-
-                            <!-- Navigation Menu-->
-                            <ul class="navigation-menu">
-
-                                <li class="has-submenu">
-                                    <a href="dashboard.html.twig"><i class="fas fa-home"></i> Dashboard</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="users.html.twig"><i class="fas fa-user-friends"></i> User Repository</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="rules.html.twig"><i class="fas fa-balance-scale"></i> Rules</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="actions.html.twig"><i class="far fa-calendar-alt"></i> Actions</a>
-                                </li>
-
-                                <li class="has-submenu">
-                                    <a href="#"><i class="fas fa-power-off"></i> Logout</a>
-                                </li>
-
-                            </ul>
-                            <!-- End navigation menu -->
-                        </div> <!-- end #navigation -->
-                    </div> <!-- end container -->
-                </div> <!-- end navbar-custom -->
-            </header>
-            <!-- End Navigation Bar-->
-
-        </div>
-        <!-- header-bg -->
+        {% include 'header.html.twig' %}
 
         <!-- Main Content -->
         <div class="wrapper">
@@ -114,7 +36,42 @@
                                     <h4 class="page-title m-0">Rules</h4>
                                 </div>
                                 <div class="col-md-4 text-right">
-                                    <a href="#"><i class="far fa-plus-square font-32 text-success"></i></a>
+                                    <a href="#"><i class="far fa-plus-square font-32 text-success" data-toggle="modal" data-target=".add-rule-modal"></i></a>
+
+                                    <div class="modal fade add-rule-modal text-left" tabindex="-1" role="dialog" aria-labelledby="addRuleModal" aria-hidden="true">
+                                        <div class="modal-dialog modal-md">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title mt-0" id="addRuleModal">Add Rule</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ path('add_new_rule') }}" method="POST">
+                                                        <div class="form-group row">
+                                                            <label for="rule-name" class="col-12 col-form-label">Rule Name:</label>
+                                                            <div class="col-12">
+                                                                <input class="form-control" type="text" name="rule-name" id="rule-name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="rule-name" class="col-12 col-form-label">Rule: </label>
+                                                            <div class="col-12">
+                                                                <textarea name="rule-body" class="form-control" id="ruleBody" cols="30" rows="10"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-2">
+                                                            <div class="col-12 text-center">
+                                                                <button type="submit"  class="btn btn-success">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+
                                 </div>
                             </div>                            
                         </div>
@@ -123,91 +80,39 @@
                 <!-- end page title end breadcrumb -->
 
                 <div id="accordion">
-                    <div class="card mb-0">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0 mt-0 font-14" style="display: inline;">
-                                <a data-toggle="collapse" data-parent="#accordion"
-                                    href="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne" class="text-dark">
-                                    Rule #1
-                                </a>
-                            </h5>
-                            <div style="float: right;"><a href="#"><i class="fas fa-minus-square text-danger font-20"></i></a></div>
+                    {% if message is defined %} <div class="alert alert-success" align="center"> {{ message }} </div>{% endif %}
+                    {% for rule in jsonContents %}
+
+                        <div class="card mb-0">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0 mt-0 font-14" style="display: inline;">
+                                    <a data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapse{{ loop.index }}" aria-expanded="true"
+                                       aria-controls="collapse{{ loop.index }}" class="text-dark">
+                                        {{rule['ruleName']}}
+                                    </a>
+                                </h5>
+                                <div style="float: right;"><a href="{{ path('delete_rule',{'ruleName': rule['ruleName']}) }}" onclick="return confirm('Delete Rule?')"><i class="fas fa-minus-square text-danger font-20"></i></a></div>
+                            </div>
+
+                            <div id="collapse{{ loop.index }}" class="collapse  "
+                                 aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <pre contenteditable="true" id="{{ rule['ruleName'] }}"> {{ rule['ruleContent']  }}
+
+                                    </pre>
+
+                                    <button class="btn btn-success" onclick="editRule('{{rule["ruleName"]}}')">Save Changes</button>
+
+
+
+                                </div>
+                            </div>
                         </div>
 
-                        <div id="collapseOne" class="collapse show"
-                                aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                accusamus terry richardson ad squid. 3 wolf moon officia
-                                aute, non cupidatat skateboard dolor brunch. Food truck
-                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                sunt aliqua put a bird on it squid single-origin coffee
-                                nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                helvetica, craft beer labore wes anderson cred nesciunt
-                                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                Leggings occaecat craft beer farm-to-table, raw denim
-                                aesthetic synth nesciunt you probably haven't heard of them
-                                accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-0">
-                        <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0 mt-0 font-14" style="display: inline;">
-                                <a class="collapsed text-dark" data-toggle="collapse"
-                                    data-parent="#accordion" href="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo">
-                                    Rule #2
-                                </a>
-                            </h5>
-                            <div style="float: right;"><a href="#"><i class="fas fa-minus-square text-danger font-20"></i></a></div>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                accusamus terry richardson ad squid. 3 wolf moon officia
-                                aute, non cupidatat skateboard dolor brunch. Food truck
-                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                sunt aliqua put a bird on it squid single-origin coffee
-                                nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                helvetica, craft beer labore wes anderson cred nesciunt
-                                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                Leggings occaecat craft beer farm-to-table, raw denim
-                                aesthetic synth nesciunt you probably haven't heard of them
-                                accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-0">
-                        <div class="card-header" id="headingThree">
-                            <h5 class="mb-0 mt-0 font-14" style="display: inline;">
-                                <a class="collapsed text-dark" data-toggle="collapse"
-                                    data-parent="#accordion" href="#collapseThree"
-                                    aria-expanded="false" aria-controls="collapseThree">
-                                    Rule #3
-                                </a>
-                            </h5>
-                            <div style="float: right;"><a href="#"><i class="fas fa-minus-square text-danger font-20"></i></a></div>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                accusamus terry richardson ad squid. 3 wolf moon officia
-                                aute, non cupidatat skateboard dolor brunch. Food truck
-                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                sunt aliqua put a bird on it squid single-origin coffee
-                                nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                helvetica, craft beer labore wes anderson cred nesciunt
-                                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                Leggings occaecat craft beer farm-to-table, raw denim
-                                aesthetic synth nesciunt you probably haven't heard of them
-                                accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
+                    {% endfor %}
 
             </div> <!-- end container-fluid -->
         </div>
@@ -215,27 +120,32 @@
 
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        © 2019 Copyright <span class="d-none d-md-inline-block"> - Crafted with <i class="fas fa-heart text-danger"></i> by .</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
+            {% include 'footer.html.twig' %}
         <!-- End Footer -->
 
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+        <script src="{{ asset('assets/js/waves.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
         <!-- App js -->
-        <script src="assets/js/app.js"></script>
+        <script src="{{ asset('assets/js/app.js') }}"></script>
 
+<script>
+    function editRule(ruleName) {
+        var ruleContent=btoa($("#"+ruleName).html());
+        var response=$.post("{{ path('edit_rule_endpoint') }}",{"ruleName":ruleName,"ruleContent":ruleContent});
+        swal("Its done!", "Rule edited successfully!", "success");
+    }
+</script>
+
+</div>
     </body>
+
 </html>
