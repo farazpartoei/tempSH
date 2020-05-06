@@ -199,34 +199,21 @@
 
                             <tbody>
 
+                            {% for action in actions %}
+
                                 <tr>
-                                    <td>ID</td>
-                                    <td>Action Type</td>
-                                    <td>Action Info</td>
-                                    <td>Creation Date</td>
-                                    <td><span class="alert alert-success">Status</span></td>
-                                    <td>Admin Message</td>
+                                    <td>{{ action.id }}</td>
+                                    <td>{{ action.type }}</td>
+                                    <td>{{ action.info }}</td>
+                                    <td>{{ action.creationdt }}</td>
+                                    <td><span class="alert alert-success">{{ action.status }}</span></td>
+                                    <td>{{action.description}}</td>
                                 </tr>
 
 
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Action Type</td>
-                                    <td>Action Info</td>
-                                    <td>Creation Date</td>
-                                    <td><span class="alert alert-warning">Status</span></td>
-                                    <td>Admin Message</td>
-                                </tr>
 
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Action Type</td>
-                                    <td>Action Info</td>
-                                    <td>Creation Date</td>
-                                    <td><span class="alert alert-danger">Status</span></td>
-                                    <td>Admin Message</td>
-                                </tr>
-
+                            {% endfor %}
+                            
                             </tbody>
                         </table>
                     </div>
