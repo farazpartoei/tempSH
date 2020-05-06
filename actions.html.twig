@@ -206,14 +206,14 @@
                                     <td>{{ action.type }}</td>
                                     <td>{{ action.info }}</td>
                                     <td>{{ action.creationdt }}</td>
-                                    <td><span class="alert alert-success">{{ action.status }}</span></td>
+                                    <td><span class="alert alert-{{ action.displayColor}}">{{ action.stringStatus }}</span></td>
                                     <td>{{action.description}}</td>
                                 </tr>
 
 
 
                             {% endfor %}
-                            
+
                             </tbody>
                         </table>
                     </div>
