@@ -205,7 +205,7 @@
                                     <td>{{ action.id }}</td>
                                     <td>{{ action.type }}</td>
                                     <td>{{ action.info }}</td>
-                                    <td>{{ action.creationdt }}</td>
+                                    <td>{{ action.creationdt | date("y/m/d") }}</td>
                                     <td><span class="alert alert-{{ action.displayColor}}">{{ action.stringStatus }}</span></td>
                                     <td>{{action.description}}</td>
                                 </tr>
