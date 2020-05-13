@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="actions" style="max-width: 600px; margin: 40px auto;border: 1px solid #424858;border-radius: 10px;padding: 20px;">
+                <div id="actions" style="max-width: 800px; margin: 40px auto;border: 1px solid #424858;border-radius: 10px;padding: 20px;">
                     <!-- Mass Seen Form -->
                     <form id="massSeen" class="action-section" method="post" action="{{ path('new_action') }}" style="display: none;">
                         <input type="hidden" id="actionType" name="actionType" value="massSeen">
@@ -250,7 +250,7 @@
         <script src="{{ asset('assets/js/app.js') }}"></script>
         <script>
         function showForm(value) {
-            $("#actions").css({ "maxWidth": "600px" });
+            $("#actions").css({ "maxWidth": "800px" });
             switch (value) {
                 case 'massSeen':
                     $('.action-section').hide();

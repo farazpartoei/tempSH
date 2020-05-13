@@ -35,7 +35,6 @@
 34. Account pages
 35. Responsive
 */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 /* ==============
   General
 ===================*/
@@ -3128,4 +3127,9 @@ table.focus-on tbody tr.focused td {
 
 #view-message-head p {
   cursor: pointer;
+}
+
+.alert {
+  padding: 0.25rem;
+  white-space: nowrap;
 }
