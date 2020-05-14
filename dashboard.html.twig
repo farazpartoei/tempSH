@@ -268,10 +268,10 @@
                 if(value["y"].includes(filterString)) return value;
             }
 
-            $("#filter-bar-chart").keypress(function () {
+            $('#filter-bar-chart').on('input', function() {
                 var filtered = barData.filter(filterBarChart);
                 barChart(filtered)
-            })
+            });
 
             $("#filter-btn").click(function () {
                 var filtered = barData.filter(filterBarChart);
