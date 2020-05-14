@@ -268,9 +268,13 @@
                 if(value["y"].includes(filterString)) return value;
             }
 
+            $("#filter-bar-chart").keypress(function () {
+                var filtered = barData.filter(filterBarChart);
+                barChart(filtered)
+            })
+
             $("#filter-btn").click(function () {
                 var filtered = barData.filter(filterBarChart);
-                console.log(filtered)
                 barChart(filtered)
             })
     
