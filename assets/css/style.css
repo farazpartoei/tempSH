@@ -3133,3 +3133,35 @@ table.focus-on tbody tr.focused td {
   padding: 0.25rem;
   white-space: nowrap;
 }
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 15px;
+  right: 15px;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
