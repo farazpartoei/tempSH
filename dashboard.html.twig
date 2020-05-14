@@ -101,7 +101,7 @@
 
                                 <h4 class="mt-0 header-title">Bar Chart</h4>
 
-                                <div id="morris-bar-example" class="morris-chart" style="height: 300px"></div>
+                                <div id="morris-bar-chart" class="morris-chart" style="height: 300px"></div>
 
                             </div>
                         </div>
@@ -113,7 +113,7 @@
 
                                 <h4 class="mt-0 header-title">Users Repo</h4>
 
-                                <div id="morris-donut-example" class="morris-chart" style="height: 300px"></div>
+                                <div id="morris-donut-chart" class="morris-chart" style="height: 300px"></div>
 
                             </div>
                         </div>
@@ -174,10 +174,10 @@
             var barData={{ chartData | raw }}
 
             function barChart(barData) {
-                $("#bar-chart").empty();
+                $("#morris-bar-chart").empty();
 
                 Morris.Bar({
-                    element: 'bar-chart',
+                    element: 'morris-bar-chart',
                     data: barData,
                     xkey: 'y',
                     ykeys: ['a', 'b'],
@@ -281,7 +281,7 @@
             ];
     
             Morris.Donut({
-                element: 'morris-donut-example',
+                element: 'morris-donut-chart',
                 data: donutData,
                 resize: true,
                 colors: ['#4bbbce', '#5985ee', '#46cd93']
