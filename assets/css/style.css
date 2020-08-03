@@ -3167,12 +3167,13 @@ table.focus-on tbody tr.focused td {
 }
 
 .loading-container {
-  width: 100%;
+  width: 240px;
   height: 100%;
   position: relative;
+  margin: 0 auto;
 }
 
-#sc1 {
+.loading-container .sc1 {
   box-sizing: border-box;
   position: absolute;
   top: 50%;
@@ -3187,7 +3188,7 @@ table.focus-on tbody tr.focused td {
   transform-origin: top center;
 }
 
-#sc2 {
+.loading-container .sc2 {
   box-sizing: border-box;
   position: absolute;
   top: 50%;
@@ -3203,7 +3204,7 @@ table.focus-on tbody tr.focused td {
   animation-delay: -200ms;
 }
 
-#sc3 {
+.loading-container .sc3 {
   box-sizing: border-box;
   position: absolute;
   top: 50%;
@@ -3219,7 +3220,7 @@ table.focus-on tbody tr.focused td {
   animation-delay: -400ms;
 }
 
-#sc4 {
+.loading-container .sc4 {
   box-sizing: border-box;
   position: absolute;
   top: 50%;
@@ -3235,7 +3236,7 @@ table.focus-on tbody tr.focused td {
   animation-delay: -600ms;
 }
 
-#sc5 {
+.loading-container .sc5 {
   box-sizing: border-box;
   position: absolute;
   top: 50%;
