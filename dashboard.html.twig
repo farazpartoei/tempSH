@@ -175,8 +175,8 @@
 
         <script>
 
-            var numberOfActiveUsers = 1;
-            var numberOfPendingUsers = 1;
+            var numberOfActiveUsers = -1;
+            var numberOfPendingUsers = -1;
 
             function barChart(barData) {
                 $("#morris-bar-chart").empty();
@@ -302,13 +302,13 @@
             $.getJSON( "/api/get_users_report/0", function( data ) {
                 numberOfPendingUsers = data.count;
                 $("#morris-donut-chart").empty();
-                makeDonut();
+                if(numberOfActiveUsers != -1) makeDonut();
             });
 
             $.getJSON( "/api/get_users_report/1", function( data ) {
                 numberOfActiveUsers = data.count;
                 $("#morris-donut-chart").empty();
-                makeDonut();
+                if(numberOfPendingUsers != -1) makeDonut();
             });
 
             $.getJSON( "/api/get_rules_count", function( data ) {
