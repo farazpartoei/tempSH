@@ -301,14 +301,18 @@
 
             $.getJSON( "/api/get_users_report/0", function( data ) {
                 numberOfPendingUsers = data.count;
-                $("#morris-donut-chart").empty();
-                if(numberOfActiveUsers != -1) makeDonut();
+                if(numberOfActiveUsers != -1) {
+                    $("#morris-donut-chart").empty();
+                    makeDonut();
+                }
             });
 
             $.getJSON( "/api/get_users_report/1", function( data ) {
                 numberOfActiveUsers = data.count;
-                $("#morris-donut-chart").empty();
-                if(numberOfPendingUsers != -1) makeDonut();
+                if(numberOfPendingUsers != -1) {
+                    $("#morris-donut-chart").empty();
+                    makeDonut();
+                }
             });
 
             $.getJSON( "/api/get_rules_count", function( data ) {
