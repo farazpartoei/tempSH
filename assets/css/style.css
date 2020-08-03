@@ -3165,3 +3165,97 @@ table.focus-on tbody tr.focused td {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#sc1 {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: calc(120px - 20px);
+  border: 8px solid #323234;
+  border-top: 0;
+  width: 40px;
+  height: 20px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  animation: rotate 1200ms ease-in-out infinite;
+  transform-origin: top center;
+}
+
+#sc2 {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: calc(120px - 38px);
+  border: 8px solid #323234;
+  border-top: 0;
+  width: 76px;
+  height: 38px;
+  border-bottom-left-radius: 76px;
+  border-bottom-right-radius: 76px;
+  animation: rotate 1200ms ease-in-out infinite;
+  transform-origin: top center;
+  animation-delay: -200ms;
+}
+
+#sc3 {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: calc(120px - 56px);
+  border: 8px solid #323234;
+  border-top: 0;
+  width: 112px;
+  height: 56px;
+  border-bottom-left-radius: 112px;
+  border-bottom-right-radius: 112px;
+  animation: rotate 1200ms ease-in-out infinite;
+  transform-origin: top center;
+  animation-delay: -400ms;
+}
+
+#sc4 {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: calc(120px - 74px);
+  border: 8px solid #323234;
+  border-top: 0;
+  width: 148px;
+  height: 74px;
+  border-bottom-left-radius: 148px;
+  border-bottom-right-radius: 148px;
+  animation: rotate 1200ms ease-in-out infinite;
+  transform-origin: top center;
+  animation-delay: -600ms;
+}
+
+#sc5 {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: calc(120px - 92px);
+  border: 8px solid #323234;
+  border-top: 0;
+  width: 184px;
+  height: 92px;
+  border-bottom-left-radius: 184px;
+  border-bottom-right-radius: 184px;
+  animation: rotate 1200ms ease-in-out infinite;
+  transform-origin: top center;
+  animation-delay: -700ms;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
