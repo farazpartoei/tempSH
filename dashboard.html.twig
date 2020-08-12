@@ -262,9 +262,6 @@
                 });
             }
 
-            var autoComplete = barData.map(x => x.y);
-            autocomplete(document.getElementById("filter-bar-chart"), autoComplete);
-
             function filterBarChart(value) {
                 filterString = $("#filter-bar-chart").val();
                 if(value["y"].includes(filterString)) return value;
@@ -324,6 +321,9 @@
                 url: "/api/get_chart_data",
                 success: function( data ) {
                     barChart(data);
+                    var autoComplete = data.map(x => x.y);
+                    autocomplete(document.getElementById("filter-bar-chart"), autoComplete);
+
                     $("#filter-bar-chart").prop('disabled',false);
                 }
             });
