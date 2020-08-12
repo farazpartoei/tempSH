@@ -292,11 +292,11 @@
                 });
             }
 
-            $.getJSON( "/api/get_users_report", function( data ) {
+            $.getJSON( "{{ path('usersReportEndpoint',{choice: 2}) }}", function( data ) {
                 $("#total-users-count").html(data.count);
             });
 
-            $.getJSON( "/api/get_users_report/0", function( data ) {
+            $.getJSON( "{{path('usersReportEndpoint',{choice: 0})}}", function( data ) {
                 numberOfPendingUsers = data.count;
                 if(numberOfActiveUsers != -1) {
                     $("#morris-donut-chart").empty();
@@ -304,7 +304,7 @@
                 }
             });
 
-            $.getJSON( "/api/get_users_report/1", function( data ) {
+            $.getJSON( "{{path('usersReportEndpoint',{choice: 1})}}", function( data ) {
                 numberOfActiveUsers = data.count;
                 if(numberOfPendingUsers != -1) {
                     $("#morris-donut-chart").empty();
@@ -312,13 +312,13 @@
                 }
             });
 
-            $.getJSON( "/api/get_rules_count", function( data ) {
+            $.getJSON( "{{path('rulesCountEndpoint')}}", function( data ) {
                 $("#rules-count").html(data.count);
             });
 
             $.ajax({
                 dataType: "json",
-                url: "/api/get_chart_data",
+                url: "{{path('chartDataEndpoint')}}",
                 success: function( data ) {
                     barChart(data);
                     var autoComplete = data.map(x => x.y);
@@ -329,11 +329,11 @@
             });
 
             setInterval(function(){
-                $.getJSON( "/api/get_queue_size", function( data ) {
+                $.getJSON( "{{path('queueSizeEndpoint')}}", function( data ) {
                     var num=data.result.size[0];
                     $("#queue_size").html(num.toLocaleString());
                 });
-            }, 60000);
+            }, 30000);
 
         </script>
 
