@@ -267,16 +267,6 @@
                 if(value["y"].includes(filterString)) return value;
             }
 
-            $('#filter-bar-chart').on('input', function() {
-                var filtered = barData.filter(filterBarChart);
-                barChart(filtered)
-            });
-
-            $("#filter-btn").click(function () {
-                var filtered = barData.filter(filterBarChart);
-                barChart(filtered)
-            })
-    
             //creating donut chart
             function makeDonut() {
                 var donutData = [
@@ -321,8 +311,19 @@
                 url: "/api/get_chart_data",
                 success: function( data ) {
                     barChart(data);
+
                     var autoComplete = data.map(x => x.y);
                     autocomplete(document.getElementById("filter-bar-chart"), autoComplete);
+
+                    $('#filter-bar-chart').on('input', function() {
+                        var filtered = data.filter(filterBarChart);
+                        barChart(filtered)
+                    });
+
+                    $("#filter-btn").click(function () {
+                        var filtered = data.filter(filterBarChart);
+                        barChart(filtered)
+                    })
 
                     $("#filter-bar-chart").prop('disabled',false);
                 }
